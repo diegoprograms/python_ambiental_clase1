@@ -1,26 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
-    <title>Python Ambiental - Clase 1</title>
+    <title>🌱 Python Ambiental - Clase 1</title>
     <link rel="icon" href="https://jupyterlite.readthedocs.io/en/latest/_static/favicon.ico" />
+    <style>
+      body {
+        font-family: "Segoe UI", Roboto, sans-serif;
+        background-color: #f6faf7;
+        color: #222;
+        text-align: center;
+        padding: 2rem;
+      }
+      a {
+        background-color: #2e8b57;
+        color: white;
+        text-decoration: none;
+        padding: 0.8rem 1.4rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+      }
+      a:hover {
+        background-color: #256f45;
+      }
+      footer {
+        margin-top: 2rem;
+        font-size: 0.9rem;
+        color: #555;
+      }
+    </style>
   </head>
+
   <body>
-    <h1 style="text-align:center;">🌱 Python Ambiental - Clase 1</h1>
-    <p style="text-align:center;">
-      Clic aquí para abrir el notebook:
+    <h1>💻 Python Ambiental - Clase 1</h1>
+    <p>Repositorio interactivo basado en <b>JupyterLite</b>.</p>
 
-      <a href="https://diegoprograms.github.io/python_ambiental_clase1/repl/index.html" target="_blank">
-        Abrir JupyterLite
+    <p>
+      <a href="https://diegoprograms.github.io/python_ambiental_clase1/repl/index.html?path=notebooks/ejemplo.ipynb" target="_blank">
+        Abrir notebook en el navegador
       </a>
-
-      
     </p>
+
+    <h3>🧠 Instrucciones</h3>
+    <ol style="display:inline-block; text-align:left;">
+      <li>Espera unos segundos mientras carga el entorno JupyterLite.</li>
+      <li>Si aparece el mensaje <b>“Select Kernel”</b>, elige: <br>🐍 <b>Python 3 (Pyodide)</b>.</li>
+      <li>Ejecuta las celdas con <code>Shift + Enter</code>.</li>
+      <li>Si el notebook no se abre automáticamente, usa el menú: <br><b>File → Open from → notebooks/ejemplo.ipynb</b>.</li>
+    </ol>
+
+    <footer>
+      📘 Desarrollado por <a href="https://github.com/diegoprograms" target="_blank">Diego Ramírez</a> · Universidad de Cundinamarca
+    </footer>
 
     <script type="application/javascript">
       window.jupyterlite_config = {
         "notebooks": [
-          "./notebooks/ejemplo.ipynb"
+          "notebooks/ejemplo.ipynb"
         ]
       };
     </script>
