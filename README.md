@@ -43,7 +43,7 @@ No requiere instalación de Python ni conexión constante a Internet después de
 ## 📘 Créditos
 
 Desarrollado por **[Diego Ramírez](https://github.com/diegoprograms)**  
-Docente - Facultad de Ingeniería y Ciencias Ambientales  
+Docente - Facultad de Ciencias agropecuarias  
 **Universidad de Cundinamarca**
 
 ---
