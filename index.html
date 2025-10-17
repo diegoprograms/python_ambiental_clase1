@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Clase 1 - JupyterLite</title>
+    <link rel="icon" href="https://jupyterlite.readthedocs.io/en/latest/_static/favicon.ico" />
+  </head>
+  <body>
+    <h1 style="text-align:center;">💻 Clase 1 en JupyterLite</h1>
+    <p style="text-align:center;">
+      Clic aquí para abrir el notebook: 
+      <a href="https://jupyterlite.github.io/demo/repl/index.html?path=./notebooks/ejemplo.ipynb" target="_blank">
+        Abrir notebook en el navegador
+      </a>
+    </p>
+
+    <script type="application/javascript">
+      window.jupyterlite_config = {
+        "notebooks": [
+          "./notebooks/ejemplo.ipynb"
+        ]
+      };
+    </script>
+    <script src="https://jupyterlite.github.io/demo/repl/index.js"></script>
+  </body>
+</html>
