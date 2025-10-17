@@ -1,0 +1,8 @@
+name: clase-1
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - matplotlib
+  - pyodide-http
