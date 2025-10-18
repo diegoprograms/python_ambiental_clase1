@@ -11,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1️⃣ Instalar JupyterLite y el kernel Pyodide explícitamente
+      # 1️⃣ Instalar JupyterLite y el kernel Pyodide
       - name: Install JupyterLite and Pyodide kernel
         run: |
           pip install --upgrade pip
-          pip install jupyterlite jupyterlite-pyodide-kernel jupyterlite-core jupyterlite-server
+          pip install jupyterlite jupyterlite-pyodide-kernel jupyterlite-core
 
       # 2️⃣ Construir el sitio, incluyendo la carpeta notebooks/
       - name: Build JupyterLite site with kernel
