@@ -1,4 +1,4 @@
-name: 🚀 Build and deploy JupyterLite with Pyodide
+name: 🚀 Build and deploy JupyterLite with Pyodide kernel
 
 on:
   push:
@@ -9,23 +9,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Clona el repositorio
       - uses: actions/checkout@v4
 
-      # 2️⃣ Instala JupyterLite con todos los plugins y kernel Pyodide
+      # 1️⃣ Instalar JupyterLite y el kernel Pyodide explícitamente
       - name: Install JupyterLite and Pyodide kernel
         run: |
           pip install --upgrade pip
           pip install jupyterlite jupyterlite-pyodide-kernel jupyterlite-core jupyterlite-server
 
-
-      # 3️⃣ Construye el sitio completo, asegurando que se incluya la carpeta notebooks/
-      - name: Build JupyterLite site including notebooks and kernel
+      # 2️⃣ Construir el sitio, incluyendo la carpeta notebooks/
+      - name: Build JupyterLite site with kernel
         run: |
-          echo "🧱 Building site with Pyodide kernel"
           jupyter lite build --output-dir _output --contents notebooks --lite-dir .
 
-      # 4️⃣ Publica el sitio en GitHub Pages (rama gh-pages)
+      # 3️⃣ Desplegar el sitio en GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
