@@ -13,10 +13,11 @@ jobs:
       - uses: actions/checkout@v4
 
       # 2️⃣ Instala JupyterLite con todos los plugins y kernel Pyodide
-      - name: Install JupyterLite and dependencies
+      - name: Install JupyterLite and Pyodide kernel
         run: |
           pip install --upgrade pip
-          pip install jupyterlite[all]
+          pip install jupyterlite jupyterlite-pyodide-kernel jupyterlite-core jupyterlite-server
+
 
       # 3️⃣ Construye el sitio completo, asegurando que se incluya la carpeta notebooks/
       - name: Build JupyterLite site including notebooks and kernel
