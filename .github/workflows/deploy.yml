@@ -1,4 +1,4 @@
-name: 🚀 Build and deploy JupyterLite with working Pyodide kernel
+name: 🚀 Build and deploy JupyterLite (Pyodide CDN)
 
 on:
   push:
@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Clonar el repositorio
       - uses: actions/checkout@v4
 
-      # 1️⃣ Instalar JupyterLite, kernel Pyodide y dependencias del servidor
+      # 2️⃣ Instalar JupyterLite y las dependencias necesarias
       - name: Install JupyterLite and dependencies
         run: |
           pip install --upgrade pip
@@ -22,13 +23,18 @@ jobs:
             jupyter-server \
             jupyterlab_server
 
-      # 2️⃣ Construir el sitio, incluyendo la carpeta notebooks/
-      - name: Build JupyterLite site with kernel
+      # 3️⃣ Construir el sitio usando Pyodide desde CDN
+      #    Esto evita tener que empaquetar los binarios localmente.
+      - name: Build JupyterLite site with CDN Pyodide
         run: |
-          echo "🧱 Building site including notebooks and Pyodide kernel..."
-          jupyter lite build --output-dir _output --contents notebooks --lite-dir .
+          echo "🧱 Building JupyterLite site using CDN Pyodide"
+          jupyter lite build \
+            --output-dir _output \
+            --contents notebooks \
+            --lite-dir . \
+            --pyodide-cdn https://cdn.jsdelivr.net/pyodide/v0.26.1/full/
 
-      # 3️⃣ Desplegar en GitHub Pages
+      # 4️⃣ Desplegar el sitio en GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
