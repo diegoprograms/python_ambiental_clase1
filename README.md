@@ -10,3 +10,4 @@ Haz clic en el siguiente botón para abrir el entorno directamente en tu navegad
 ## 🧠 Contenido
 - Notebook principal: [`notebooks/ejemplo.ipynb`](notebooks/ejemplo.ipynb)
 - Entorno completamente ejecutable en navegador (sin instalación de Python).
+
