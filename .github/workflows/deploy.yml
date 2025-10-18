@@ -1,7 +1,4 @@
-# 🚀 Workflow para construir y desplegar automáticamente tu entorno JupyterLite
-# en GitHub Pages cada vez que hagas "git push" a la rama main.
-
-name: 🚀 Build and deploy JupyterLite site
+name: 🚀 Build and deploy JupyterLite with Pyodide
 
 on:
   push:
@@ -15,18 +12,20 @@ jobs:
       # 1️⃣ Clona el repositorio
       - uses: actions/checkout@v4
 
-      # 2️⃣ Instala JupyterLite con todos sus componentes
-      - name: Instalar JupyterLite
-        run: pip install jupyterlite[all]
-
-      # 3️⃣ Construye el sitio JupyterLite, incluyendo explícitamente la carpeta "notebooks"
-      - name: Construir el sitio JupyterLite
+      # 2️⃣ Instala JupyterLite con todos los plugins y kernel Pyodide
+      - name: Install JupyterLite and dependencies
         run: |
-          echo "🧱 Building JupyterLite site including notebooks/"
-          jupyter lite build --output-dir _output --contents notebooks
+          pip install --upgrade pip
+          pip install jupyterlite[all]
 
-      # 4️⃣ Publica automáticamente en GitHub Pages (rama gh-pages)
-      - name: Desplegar en GitHub Pages
+      # 3️⃣ Construye el sitio completo, asegurando que se incluya la carpeta notebooks/
+      - name: Build JupyterLite site including notebooks and kernel
+        run: |
+          echo "🧱 Building site with Pyodide kernel"
+          jupyter lite build --output-dir _output --contents notebooks --lite-dir .
+
+      # 4️⃣ Publica el sitio en GitHub Pages (rama gh-pages)
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
